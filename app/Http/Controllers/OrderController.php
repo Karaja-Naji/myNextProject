@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
 
-use App\Category;
-
-class CategoriesController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return Category::all();
+        return Order::all();
     }
 
     /**
@@ -36,10 +35,8 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
-        $category->create($request->all());
-
-        return $category;
+        $order = new Order($request->all());
+        $order->save();
     }
 
     /**

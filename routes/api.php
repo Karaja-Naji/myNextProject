@@ -48,6 +48,7 @@ $api->version('v1', function (Router $api) {
         $api->resource('posts', "App\\Http\\Controllers\\PostController");
         $api->resource('products', "App\\Http\\Controllers\\ProductController");
         $api->resource('category', "App\\Http\\Controllers\\CategoriesController");
+        $api->resource('orders', "App\\Http\\Controllers\\OrderController");
         $api->get('userPosts/{id}', "App\\Http\\Controllers\\PostController@userPosts");
     });
 });

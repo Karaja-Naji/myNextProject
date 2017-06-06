@@ -7,15 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'price', 'weight', 'shortdesc'
+        'name', 'price', 'weight', 'shortdesc', 'thumb', 'category_id','cartdesc',
+        'longdesc','stock', 'location'
     ];
+    //protected $guarded = ['price'];
 
     public function images()
     {
     	return $this->hasMany('App\Image');
     }
-    public function productCategory()
+    public function category()
     {
-    	return $this->hasOne('App\ProductCategory', 'productcategory_id');
+    	return $this->belongsTo('App\Category', 'category_id');
     }
 }

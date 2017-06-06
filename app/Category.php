@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductCategory extends Model
+class Category extends Model
 {
-	protected $table = 'productcategories';
+    protected $table = 'categories';
+
+    public $timestamps = false;
 
     protected $fillable = [
         'title',
@@ -14,6 +16,6 @@ class ProductCategory extends Model
 
     public function product()
     {
-    	return $this->belongsTo('App\Product', 'productcategory_id');
+    	return $this->hasMany('App\Product', 'category_id');
     }
 }
